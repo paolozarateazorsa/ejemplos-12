@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Formulario Dinámicamente</title>
+    <style>
+        /* Un poco de estilo para el formulario */
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario Dinámico</h1>
+    <div id="formulario-container"></div>
+
+    <script>
+        // Crear el formulario
+        const form = document.createElement('form');
+
+        // Crear un contenedor para los campos del formulario
+        const formGroup1 = document.createElement('div');
+        formGroup1.className = 'form-group';
+        const label1 = document.createElement('label');
+        label1.textContent = 'Nombre:';
+        const input1 = document.createElement('input');
+        input1.type = 'text';
+        input1.name = 'nombre';
+        input1.required = true;
+        formGroup1.appendChild(label1);
+        formGroup1.appendChild(input1);
+
+        const formGroup2 = document.createElement('div');
+        formGroup2.className = 'form-group';
+        const label2 = document.createElement('label');
+        label2.textContent = 'Correo electrónico:';
+        const input2 = document.createElement('input');
+        input2.type = 'email';
+        input2.name = 'email';
+        input2.required = true;
+        formGroup2.appendChild(label2);
+        formGroup2.appendChild(input2);
+
+        // Crear el botón de envío
+        const submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.textContent = 'Enviar';
+
+        // Añadir los campos y el botón al formulario
+        form.appendChild(formGroup1);
+        form.appendChild(formGroup2);
+        form.appendChild(submitButton);
+
+        // Añadir el formulario al contenedor en el DOM
+        document.getElementById('formulario-container').appendChild(form);
+    </script>
+</body>
+</html>

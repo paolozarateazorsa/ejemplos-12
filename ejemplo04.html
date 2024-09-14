@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Estilo del Título</title>
+    <style>
+        /* Estilo predeterminado para los títulos */
+        .titulo-personalizado {
+            color: black;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo-personalizado">Este es un Título</h1>
+    
+    <script>
+        // Seleccionar el título por su clase
+        const titulo = document.querySelector('.titulo-personalizado');
+        
+        // Cambiar el color y el tamaño de la fuente
+        if (titulo) {
+            titulo.style.color = 'blue';         // Cambiar color a azul
+            titulo.style.fontSize = '36px';      // Cambiar tamaño de fuente a 36px
+        }
+    </script>
+</body>
+</html>

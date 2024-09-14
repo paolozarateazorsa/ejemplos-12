@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <style>
+        /* Estilos básicos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        button.delete {
+            background-color: #dc3545;
+        }
+
+        button.delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tareas</h1>
+        <input type="text" id="taskInput" placeholder="Añadir una tarea...">
+        <button id="addTaskButton">Añadir Tarea</button>
+        <ul id="taskList">
+            <!-- Las tareas se agregarán aquí dinámicamente -->
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addTaskButton = document.getElementById('addTaskButton');
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+
+            // Función para crear un nuevo elemento de tarea
+            function createTaskElement(taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Eliminar';
+                deleteButton.className = 'delete';
+                deleteButton.addEventListener('click', () => {
+                    taskList.removeChild(li);
+                });
+
+                li.appendChild(deleteButton);
+                return li;
+            }
+
+            // Maneja el clic en el botón de añadir tarea
+            addTaskButton.addEventListener('click', () => {
+                const taskText = taskInput.value.trim();
+                if (taskText) {
+                    const taskElement = createTaskElement(taskText);
+                    taskList.appendChild(taskElement);
+                    taskInput.value = ''; // Limpiar el campo de entrada
+                }
+            });
+
+            // Maneja el enter para añadir tarea
+            taskInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addTaskButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

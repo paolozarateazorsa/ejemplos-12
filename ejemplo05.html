@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Contenido del Párrafo</title>
+    <style>
+        /* Un poco de estilo para el párrafo */
+        #miParrafo {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <p id="miParrafo">Este es el contenido original del párrafo.</p>
+    
+    <script>
+        // Seleccionar el párrafo por su ID
+        const parrafo = document.getElementById('miParrafo');
+        
+        // Cambiar el contenido del párrafo
+        if (parrafo) {
+            parrafo.textContent = 'El contenido del párrafo ha sido cambiado con éxito.';
+        }
+    </script>
+</body>
+</html>
